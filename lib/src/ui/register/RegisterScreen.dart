@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:apptemplates/src/base/ui/BaseStatelessWidget.dart';
-import 'package:apptemplates/src/utils/string/RegisterStrings.dart';
-import 'package:apptemplates/src/utils/theme/index.dart';
+import 'package:mo17/src/base/ui/BaseStatelessWidget.dart';
+import 'package:mo17/src/utils/string/RegisterStrings.dart';
+import 'package:mo17/src/utils/theme/index.dart';
 
 class RegisterScreen extends BaseStatelessWidget {
   Size size;

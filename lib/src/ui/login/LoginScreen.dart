@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:apptemplates/src/utils/string/LoginStrings.dart';
-import 'package:apptemplates/src/utils/theme/index.dart';
+import 'package:mo17/src/utils/string/LoginStrings.dart';
+import 'package:mo17/src/utils/theme/index.dart';
 
 class LoginScreen extends StatelessWidget {
   @override

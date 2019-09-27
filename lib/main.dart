@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:apptemplates/src/ui/login/LoginScreen.dart';
-import 'package:apptemplates/src/ui/register/RegisterScreen.dart';
-import 'package:apptemplates/src/ui/home/HomeScreen.dart';
+import 'package:mo17/src/ui/login/LoginScreen.dart';
+import 'package:mo17/src/ui/register/RegisterScreen.dart';
+import 'package:mo17/src/ui/home/HomeScreen.dart';
 
 void main() => runApp(
       MaterialApp(
