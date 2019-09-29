@@ -103,10 +103,15 @@ class HomeScreen extends BaseStatelessWidget{
   @override
   Widget onInitBody(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        centerTitle: true,
+        title: new Text('NIEUWS')
+      ),
       body: new Container(
-        child: new Column(
-          children: <Widget>[
-            new Text("Nieuws"),  
+        child: 
+        // new Column(
+        //   children: <Widget>[
+            // new Text("Nieuws"),  
           new FutureBuilder<String> (
           future: getData(),
           builder: (context, nieuws) {
@@ -122,9 +127,10 @@ class HomeScreen extends BaseStatelessWidget{
             }
           }
         )
-          ],
-        )
-      ),
+            
+          //]
+        //)
+      )
     );
   }
 
