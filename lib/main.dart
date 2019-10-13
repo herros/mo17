@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mo17/src/ui/login/LoginScreen.dart';
-import 'package:mo17/src/ui/register/RegisterScreen.dart';
+import 'package:mo17/src/ui/uitslagen/UitslagenScreen.dart';
 import 'package:mo17/src/ui/home/HomeScreen.dart';
 
 void main() => runApp(
@@ -8,9 +8,9 @@ void main() => runApp(
         initialRoute: '/home',
         routes: {
           // First screen
-          '/': (context) => RegisterScreen(),
-          '/login': (context) => LoginScreen(),
-          '/register' : (context) => RegisterScreen(),
+          '/': (context) => HomeScreen(),
+          // '/login': (context) => LoginScreen(),
+          '/uitslagen' : (context) => UitslagenScreen(),
           '/home' : (context) => HomeScreen(),
         },
       ),

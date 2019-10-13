@@ -1,10 +1,14 @@
 import "package:flutter/material.dart";
+import 'package:mo17/src/utils/theme/index.dart';
 
 abstract class BaseStatelessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
       home: GestureDetector(
         onTap: () {
           // Disable keyboard when tap anywhere outside Text feild
@@ -39,7 +43,34 @@ abstract class BaseStatelessWidget extends StatelessWidget {
 
   /// Appbar widget
   Widget onInitAppBar(BuildContext context) {
-    return null;
+    return AppBar(
+      leading: _initLeading(context),
+      title: const Text('CVV Berkel MO17-1'),
+      // actions: <Widget>[
+      //   IconButton(
+      //       icon: const Icon(Icons.add_alert),
+      //       tooltip: 'Show Snackbar',
+      //       onPressed: () {
+      //         //scaffoldKey.currentState.showSnackBar(snackBar);
+      //       },
+      //     ),
+      // ],
+    );
+  }
+
+  /// Drawer icon
+  Widget _initLeading(BuildContext context){
+    return Builder(
+      builder: (BuildContext context){
+        return IconButton(
+          icon: Image.asset(PATH_ICON_MENU),
+          onPressed: (){
+            print("On pressed icon drawer menu");
+            Scaffold.of(context).openDrawer();
+          },
+        );
+      },
+    );
   }
 
   /// Body widget
@@ -54,8 +85,72 @@ abstract class BaseStatelessWidget extends StatelessWidget {
 
   /// Drawer menu widget
   Widget onInitDrawer(BuildContext context) {
-    return null;
-  }
+      return Drawer(
+      child: Column(
+        children: <Widget>[
+            // Header.
+            Container(
+              decoration : BoxDecoration(
+                color: Colors.indigo,
+              ),
+              child : Padding(padding : EdgeInsets.fromLTRB(0, 30, 0, 15),
+                child : ListTile(
+                  title : Padding(padding : EdgeInsets.fromLTRB(0, 0, 0, 20),
+                    child : Center(child : Text('CVV Berkel',
+                      style : TextStyle(color : Colors.white, fontSize : 24)
+                    ))
+                  ),
+                  subtitle : Center(child : Text('MO17-1',
+                    style : TextStyle(color : Colors.white, fontSize : 16)
+                  ))
+                )
+              )
+            ),
+            // Nieuws
+            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child : ListTile(
+                leading : Icon(Icons.view_headline),
+                title : Text("Nieuws"),
+                onTap: () {
+                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
+                  Navigator.of(context).pushNamedAndRemoveUntil("/home", ModalRoute.withName("/"));
+                }
+              )
+            ),
+            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child : ListTile(
+                leading : Icon(Icons.table_chart),
+                title : Text("Uitslagen"),
+                onTap: () {
+                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
+                  Navigator.of(context).pushNamedAndRemoveUntil("/uitslagen", ModalRoute.withName("/"));
+                }
+              )
+            ),
+            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child : ListTile(
+                leading : Icon(Icons.filter_list),
+                title : Text("Stand"),
+                onTap: () {
+                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
+                  Navigator.of(context).pushNamedAndRemoveUntil("/home", ModalRoute.withName("/"));
+                }
+              )
+            ),
+            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child : ListTile(
+                leading : Icon(Icons.local_activity),
+                title : Text("Scores"),
+                onTap: () {
+                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
+                  Navigator.of(context).pushNamedAndRemoveUntil("/home", ModalRoute.withName("/"));
+                }
+              )
+            ),
+        ],
+      ),
+    );
+}
 
   /// End Drawer widget
   Widget onInitEndDrawer(BuildContext context) {

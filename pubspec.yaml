@@ -43,6 +43,7 @@ flutter:
   assets:
     # images
     - lib/src/assets/images/background.jpg
+    - lib/src/assets/images/cvvbackground.jpg
     # - lib/src/assets/images/logo.png
     # icons
     - lib/src/assets/icons/menu.png

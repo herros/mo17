@@ -1,4 +1,4 @@
-import 'package:mo17/src/models/NieuwsBericht.dart';
+import 'package:mo17/src/models/Uitslag.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:mo17/src/base/ui/BaseStatelessWidget.dart';
@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http;
 import 'package:mo17/src/utils/theme/index.dart';
 
 
-class HomeScreen extends BaseStatelessWidget{
+class UitslagenScreen extends BaseStatelessWidget{
 
-  final String urlNews = "https://script.google.com/macros/s/AKfycbz5QCQMy6txdonWM5FG_z2UH9xWVreBYP1lQ-KndEwTi6v4cS60/exec?key=rockandroll&blad=Nieuws&format=json";
+  final String urlNews = "https://script.google.com/macros/s/AKfycbz5QCQMy6txdonWM5FG_z2UH9xWVreBYP1lQ-KndEwTi6v4cS60/exec?key=rockandroll&format=json&blad=CompNJ";
 
   /// Body of screen
   /// include : 
@@ -29,7 +29,7 @@ class HomeScreen extends BaseStatelessWidget{
               height: double.infinity,
               alignment: Alignment.center),
               new Center(
-                child: Text('NIEUWS', style: TextStyle(color: Colors.pink, fontSize: 24),))
+                child: Text('UITSLAGEN', style: TextStyle(color: Colors.pink, fontSize: 24),))
             ],
           )
       ),
@@ -61,8 +61,8 @@ class HomeScreen extends BaseStatelessWidget{
     return response.body;
   }
 
-  Widget createListView(BuildContext context, AsyncSnapshot nieuws) {
-    List<NieuwsBericht> lijst = nieuwsBerichtFromJson(nieuws.data);
+  Widget createListView(BuildContext context, AsyncSnapshot uitslagen) {
+    List<Uitslag> lijst = uitslagFromJson(uitslagen.data);
     return new ListView.builder(
       itemCount: lijst.length,
       itemBuilder: (BuildContext context, int index) {
@@ -71,7 +71,7 @@ class HomeScreen extends BaseStatelessWidget{
             new ListTile(
               subtitle: new Text(lijst[index].datum),
               title: new Text(
-                lijst[index].text,
+                lijst[index].home,
                 style: TextStyle(color: Colors.blue, fontSize: 18),
                 ),
             ),
