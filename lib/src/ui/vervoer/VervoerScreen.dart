@@ -1,4 +1,4 @@
-import 'package:mo17/src/models/Uitslag.dart';
+import 'package:mo17/src/models/Vervoer.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:mo17/src/base/ui/BaseStatelessWidget.dart';
@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http;
 import 'package:mo17/src/utils/theme/index.dart';
 
 
-class UitslagenScreen extends BaseStatelessWidget{
+class VervoerScreen extends BaseStatelessWidget{
 
-  final String urlNews = "https://script.google.com/macros/s/AKfycbz5QCQMy6txdonWM5FG_z2UH9xWVreBYP1lQ-KndEwTi6v4cS60/exec?key=rockandroll&format=json&blad=CompNJ";
+  final String urlNews = "https://script.google.com/macros/s/AKfycbz5QCQMy6txdonWM5FG_z2UH9xWVreBYP1lQ-KndEwTi6v4cS60/exec?key=rockandroll&blad=Rijlijst&format=json";
 
   /// Body of screen
   /// include : 
@@ -29,7 +29,7 @@ class UitslagenScreen extends BaseStatelessWidget{
               height: double.infinity,
               alignment: Alignment.center),
               new Center(
-                child: Text('UITSLAGEN', style: TextStyle(color: Colors.pink, fontSize: 24),))
+                child: Text('VERVOER', style: TextStyle(color: Colors.pink, fontSize: 24),))
             ],
           )
       ),
@@ -59,45 +59,27 @@ class UitslagenScreen extends BaseStatelessWidget{
     return response.body;
   }
 
-  Widget createListView(BuildContext context, AsyncSnapshot uitslagen) {
-    List<Uitslag> lijst = uitslagFromJson(uitslagen.data);
-
+  Widget createListView(BuildContext context, AsyncSnapshot nieuws) {
+    List<Vervoer> lijst = vervoerFromJson(nieuws.data);
     return new ListView.builder(
       itemCount: lijst.length,
       itemBuilder: (BuildContext context, int index) {
-        return 
-        new Column(
+        return new Column(
           children: <Widget>[
             new ListTile(
-              subtitle: new Text(lijst[index].datum), //, textScaleFactor: 0.8,),
-              title:
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  createField(lijst[index].home, 2),
-                  createField(lijst[index].away, 2),
-                  createField(lijst[index].uitslag, 1)
-                ]
-              )
+              subtitle: new Text(lijst[index].datum),
+              title: new Text(
+                lijst[index].text,
+                style: TextStyle(color: Colors.blue, fontSize: 18),
+                ),
             ),
-              new Divider(height: 2.0,)
-            ]
+            new Divider(height: 2.0,),
+            ],
           );
-      }
+        },
     );
   }
 
-  Widget createField(field, factor) {
-    return new Expanded(
-        flex: factor,
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Text(field, style: TextStyle(color: Colors.blue, fontSize: 16))
-          ],
-        ),
-      );
-  }
    /// Bottom nav
   // @override
   // Widget onInitBottomNavigationBar(BuildContext context){

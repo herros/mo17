@@ -1,4 +1,4 @@
-package com.example.apptemplates;
+package com.herros.mo17;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

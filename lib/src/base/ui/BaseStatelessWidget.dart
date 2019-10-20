@@ -133,7 +133,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 title : Text("Stand"),
                 onTap: () {
                   // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/home", ModalRoute.withName("/"));
+                  Navigator.of(context).pushNamedAndRemoveUntil("/stand", ModalRoute.withName("/"));
                 }
               )
             ),
@@ -143,7 +143,17 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 title : Text("Scores"),
                 onTap: () {
                   // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/home", ModalRoute.withName("/"));
+                  Navigator.of(context).pushNamedAndRemoveUntil("/score", ModalRoute.withName("/"));
+                }
+              )
+            ),
+            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child : ListTile(
+                leading : Icon(Icons.local_taxi),
+                title : Text("Vervoerslijst"),
+                onTap: () {
+                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
+                  Navigator.of(context).pushNamedAndRemoveUntil("/vervoer", ModalRoute.withName("/"));
                 }
               )
             ),

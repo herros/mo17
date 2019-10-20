@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mo17/src/ui/login/LoginScreen.dart';
-import 'package:mo17/src/ui/uitslagen/UitslagenScreen.dart';
+import 'package:mo17/src/ui/stand/StandScreen.dart';
 import 'package:mo17/src/ui/home/HomeScreen.dart';
+import 'package:mo17/src/ui/score/ScoreScreen.dart';
+import 'package:mo17/src/ui/uitslagen/UitslagenScreen.dart';
+import 'package:mo17/src/ui/vervoer/VervoerScreen.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -9,9 +11,11 @@ void main() => runApp(
         routes: {
           // First screen
           '/': (context) => HomeScreen(),
-          // '/login': (context) => LoginScreen(),
+          '/stand' : (context) => StandScreen(),
           '/uitslagen' : (context) => UitslagenScreen(),
           '/home' : (context) => HomeScreen(),
+          '/score' : (context) => ScoreScreen(),
+          '/vervoer' : (context) => VervoerScreen()
         },
       ),
     );
