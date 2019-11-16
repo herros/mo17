@@ -107,7 +107,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
               )
             ),
             // Nieuws
-            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
               child : ListTile(
                 leading : Icon(Icons.view_headline),
                 title : Text("Nieuws"),
@@ -117,7 +117,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 }
               )
             ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
               child : ListTile(
                 leading : Icon(Icons.table_chart),
                 title : Text("Uitslagen"),
@@ -127,7 +127,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 }
               )
             ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
               child : ListTile(
                 leading : Icon(Icons.filter_list),
                 title : Text("Stand"),
@@ -137,7 +137,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 }
               )
             ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
               child : ListTile(
                 leading : Icon(Icons.local_activity),
                 title : Text("Scores"),
@@ -147,7 +147,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 }
               )
             ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 20, 0, 0),
+            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
               child : ListTile(
                 leading : Icon(Icons.local_taxi),
                 title : Text("Vervoerslijst"),
