@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:mo17/src/utils/theme/index.dart';
+import 'package:mo17/src/utils/theme/ThemeBase.dart';
 
 abstract class BaseStatelessWidget extends StatelessWidget {
   @override

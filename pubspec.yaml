@@ -42,11 +42,9 @@ flutter:
 
   assets:
     # images
-    - lib/src/assets/images/background.jpg
-    - lib/src/assets/images/cvvbackground.jpg
-    # - lib/src/assets/images/logo.png
+    - lib/src/assets/images/
     # icons
-    - lib/src/assets/icons/menu.png
+    - lib/src/assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,14 +1,9 @@
+import 'package:mo17/config.dart';
 import 'package:mo17/src/models/Score.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:mo17/src/base/ui/BaseStatelessWidget.dart';
-import 'package:http/http.dart' as http;
-import 'package:mo17/src/utils/theme/index.dart';
-
 
 class ScoreScreen extends BaseStatelessWidget{
-
-  final String urlNews = "https://script.google.com/macros/s/AKfycbz5QCQMy6txdonWM5FG_z2UH9xWVreBYP1lQ-KndEwTi6v4cS60/exec?key=rockandroll&format=json&blad=Scores";
 
   /// Body of screen
   /// include : 
@@ -20,23 +15,12 @@ class ScoreScreen extends BaseStatelessWidget{
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0.0,
-        title: 
-          new Stack(
-            children: <Widget>[
-             Image.asset(PATH_CVV_BACKGROUND, 
-              fit: BoxFit.fill, 
-              width: double.infinity,
-              height: double.infinity,
-              alignment: Alignment.center),
-              new Center(
-                child: Text('SCORELIJST', style: TextStyle(color: Colors.pink, fontSize: 24),))
-            ],
-          )
+        title: AppConfig.of(context).appBarTitle('SCORELIJST')
       ),
       body: Container(
         child: 
           new FutureBuilder<String> (
-          future: getData(),
+          future: AppConfig.of(context).getData(AppConfig.of(context).urlScore),
           builder: (context, nieuws) {
             switch (nieuws.connectionState) {
               case ConnectionState.none:
@@ -52,11 +36,6 @@ class ScoreScreen extends BaseStatelessWidget{
         )
       )
     );
-  }
-
-  Future<String> getData() async {
-    var response = await http.get(urlNews);
-    return response.body;
   }
 
   Widget createListView(BuildContext context, AsyncSnapshot snapshot) {
@@ -132,16 +111,4 @@ class ScoreScreen extends BaseStatelessWidget{
         ),
       );
   }
-
-   /// Bottom nav
-  // @override
-  // Widget onInitBottomNavigationBar(BuildContext context){
-  //   return FancyBottomNavigation(
-  //     tabs: [
-  //       TabData(iconData: ),
-  //       TabData(),
-  //     ],
-
-  //   );
-  // }
 }
