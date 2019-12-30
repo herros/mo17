@@ -106,57 +106,13 @@ abstract class BaseStatelessWidget extends StatelessWidget {
                 )
               )
             ),
-            // Nieuws
-            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child : ListTile(
-                leading : Icon(Icons.view_headline),
-                title : Text("Nieuws"),
-                onTap: () {
-                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/home", ModalRoute.withName("/"));
-                }
-              )
-            ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child : ListTile(
-                leading : Icon(Icons.table_chart),
-                title : Text("Uitslagen"),
-                onTap: () {
-                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/uitslagen", ModalRoute.withName("/"));
-                }
-              )
-            ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child : ListTile(
-                leading : Icon(Icons.filter_list),
-                title : Text("Stand"),
-                onTap: () {
-                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/stand", ModalRoute.withName("/"));
-                }
-              )
-            ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child : ListTile(
-                leading : Icon(Icons.local_activity),
-                title : Text("Scores"),
-                onTap: () {
-                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/score", ModalRoute.withName("/"));
-                }
-              )
-            ),
-            Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child : ListTile(
-                leading : Icon(Icons.local_taxi),
-                title : Text("Vervoerslijst"),
-                onTap: () {
-                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
-                  Navigator.of(context).pushNamedAndRemoveUntil("/vervoer", ModalRoute.withName("/"));
-                }
-              )
-            ),
+            drawerItem(context, Icons.view_headline, "Nieuws", "/home"),
+            drawerItem(context, Icons.table_chart, "Uitslagen", "/uitslagen"),
+            drawerItem(context, Icons.filter_list, "Stand", "/stand"),
+            drawerItem(context, Icons.local_activity, "Scores", "/score"),
+            drawerItem(context, Icons.local_taxi, "Vervoerslijst", "/vervoer"),
+            drawerItem(context, Icons.table_chart, "Uitslagen Najaar", "/uitslagennj"),
+            drawerItem(context, Icons.filter_list, "Eindstand Najaar", "/standnj"),
         ],
       ),
     );
@@ -208,5 +164,21 @@ abstract class BaseStatelessWidget extends StatelessWidget {
     } else {
       Navigator.pop(context, data);
     }
+  }
+
+  Widget drawerItem(BuildContext context, 
+                    IconData icon,
+                    String menuItem,
+                    String link) {
+    return  Padding(padding : EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child : ListTile(
+                leading : Icon(icon),
+                title : Text(menuItem),
+                onTap: () {
+                  // Navigate to new screen, ensuring all others except Home are removed from navigation.
+                  Navigator.of(context).pushNamedAndRemoveUntil(link, ModalRoute.withName("/"));
+                }
+              )
+            );
   }
 }

@@ -15,8 +15,10 @@ Widget startUp() {
       routes: {
         // First screen
         '/': (context) => HomeScreen(),
-        '/stand' : (context) => StandScreen(),
-        '/uitslagen' : (context) => UitslagenScreen(),
+        '/stand' : (context) => StandScreen(AppConfig.of(context).urlStand, 'STAND'),
+        '/standnj' : (context) => StandScreen(AppConfig.of(context).urlStandNJ, 'STAND NAJAAR'),
+        '/uitslagen' : (context) => UitslagenScreen(AppConfig.of(context).urlUitslagen, 'UITSLAGEN'),
+        '/uitslagennj' : (context) => UitslagenScreen(AppConfig.of(context).urlUitslagenNJ, 'UITSLAGEN NAJAAR'),
         '/home' : (context) => HomeScreen(),
         '/score' : (context) => ScoreScreen(),
         '/vervoer' : (context) => VervoerScreen()

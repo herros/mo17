@@ -3,7 +3,12 @@ import 'package:mo17/src/models/Stand.dart';
 import 'package:flutter/material.dart';
 import 'package:mo17/src/base/ui/BaseStatelessWidget.dart';
 
-class StandScreen extends BaseStatelessWidget{
+class StandScreen extends BaseStatelessWidget {
+
+  final String urlStand;
+  final String headerText;
+
+  StandScreen(this.urlStand, this.headerText);
 
   /// Body of screen
   /// include : 
@@ -15,12 +20,12 @@ class StandScreen extends BaseStatelessWidget{
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0.0,
-        title: AppConfig.of(context).appBarTitle('STAND')
+        title: AppConfig.of(context).appBarTitle(headerText)
       ),
       body: Container(
         child: 
           new FutureBuilder<String> (
-          future: AppConfig.of(context).getData(AppConfig.of(context).urlStand),
+          future: AppConfig.of(context).getData(urlStand),
           builder: (context, nieuws) {
             switch (nieuws.connectionState) {
               case ConnectionState.none:

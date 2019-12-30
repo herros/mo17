@@ -8,8 +8,10 @@ class AppConfig extends InheritedWidget {
   final String urlVervoer = url + "Rijlijst";
   final String urlNieuws = url + "Nieuws";
   final String urlStand = url + "StandVJ";
+  final String urlStandNJ = url + "Stand";
   final String urlScore = url + "Scores";
   final String urlUitslagen = url + "CompVJ";
+  final String urlUitslagenNJ = url + "CompNJ";
 
   AppConfig({ Widget child }) : super(child: child);
 
