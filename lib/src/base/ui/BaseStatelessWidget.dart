@@ -111,6 +111,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
             drawerItem(context, Icons.filter_list, "Stand", "/stand"),
             drawerItem(context, Icons.local_activity, "Scores", "/score"),
             drawerItem(context, Icons.local_taxi, "Vervoerslijst", "/vervoer"),
+            Divider(height: 2.0, thickness: 2,),
             drawerItem(context, Icons.table_chart, "Uitslagen Najaar", "/uitslagennj"),
             drawerItem(context, Icons.filter_list, "Eindstand Najaar", "/standnj"),
         ],
